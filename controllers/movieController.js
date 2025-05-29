@@ -10,4 +10,15 @@ const index = (req, res) => {
   });
 };
 
-module.exports = { index };
+const show = (req, res) => {
+  const id = req.params.id;
+  const sqlMovie = `SELECT * FROM movies WHERE id = ?`;
+  connection.query(sqlMovie, [id], (error, movieResult) => {
+    if (error) {
+      res.status(500).json({ message: error.message });
+    }
+    res.send(movieResult);
+  });
+};
+
+module.exports = { index, show };
