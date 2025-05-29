@@ -6,6 +6,8 @@ const port = 3000;
 //Middlewares
 //notFound.js
 const notFound = require("./middlewares/notFound.js");
+//errorHandler
+const errorHandler = require("./middlewares/errorHandler.js");
 
 //public
 app.use(express.static("public"));
@@ -28,6 +30,7 @@ app.get("/", (req, res) => {
 /*                                 MiddleWares                                */
 /* -------------------------------------------------------------------------- */
 app.use(notFound);
+app.use(errorHandler);
 
 //Listen
 app.listen(port, () => {
