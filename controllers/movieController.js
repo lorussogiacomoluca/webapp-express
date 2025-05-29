@@ -17,7 +17,15 @@ const show = (req, res) => {
     if (error) {
       res.status(500).json({ message: error.message });
     }
-    res.send(movieResult);
+    const movie = movieResult[0];
+    const sqlReviews = `SELECT * FROM reviews WHERE movie_id = ?`;
+    connection.query(sqlReviews, [id], (error, reviewsResult) => {
+      if (error) {
+        res.status(500).json({ message: error.message });
+      }
+      movie.reviews = reviewsResult;
+      res.send(movie);
+    });
   });
 };
 
