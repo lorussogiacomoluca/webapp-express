@@ -7,15 +7,15 @@ const port = 3000;
 const connection = require("./data/db");
 
 //Router
-const movieRouter = require("./routers/movieRouter");
+const movieRouter = require("./routers/movieRouter.js");
+
+//Movie Router
+app.use("/api/movies", movieRouter);
 
 //Entry point
 app.use("/", (req, res) => {
   res.send("Welcome to my movies library");
 });
-
-//Movie Router
-app.use("/movies", movieRouter);
 
 //Listen
 app.listen(port, () => {
