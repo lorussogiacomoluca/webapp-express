@@ -24,6 +24,7 @@ const show = (req, res) => {
         res.status(500).json({ message: error.message });
       }
       movie.reviews = reviewsResult;
+      movie.image = req.imagePath + movie.image;
       res.send(movie);
     });
   });

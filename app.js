@@ -8,7 +8,9 @@ const port = 3000;
 const notFound = require("./middlewares/notFound.js");
 //errorHandler
 const errorHandler = require("./middlewares/errorHandler.js");
-
+//imagePath
+const setImagePath = require("./middlewares/setImagePath.js");
+app.use(setImagePath);
 //public
 app.use(express.static("public"));
 
