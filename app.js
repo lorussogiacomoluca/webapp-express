@@ -3,6 +3,9 @@ const express = require("express");
 const app = express();
 const port = 3000;
 
+//DB
+const connection = require("./data/db");
+
 //Entry point
 app.use("/", (req, res) => {
   res.send("Welcome to my movies library");
