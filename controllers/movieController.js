@@ -6,13 +6,16 @@ const index = (req, res) => {
     if (error) {
       res.status(500).json({ message: error.message });
     }
-    res.send(moviesResutls);
+    const movies = moviesResutls.map((movie) => {
+      return { ...movie, image: req.imagePath + movie.image };
+    });
+    res.send(movies);
   });
 };
 
 const show = (req, res) => {
   const id = req.params.id;
-  const sqlMovie = `SELECT * FROM movies WHERE id = ?`;
+  const sqlMovie = `SELECT M.*, AVG(R.vote) FROM movies M JOIN reviews R on M.id = R.movie_id WHERE M.id = ?`;
   connection.query(sqlMovie, [id], (error, movieResult) => {
     if (error) {
       res.status(500).json({ message: error.message });
