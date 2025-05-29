@@ -1,6 +1,13 @@
+const connection = require("../data/db");
+
 const index = (req, res) => {
-  res.send(`Lista dei film`);
-  console.log("movieController.index called");
+  const sql = `SELECT * FROM movies`;
+  connection.query(sql, (error, moviesResutls) => {
+    if (error) {
+      res.status(500).json({ message: error.message });
+    }
+    res.send(moviesResutls);
+  });
 };
 
 module.exports = { index };
