@@ -5,6 +5,9 @@ const express = require("express");
 const app = express();
 const port = 3000;
 
+//Import CORS module
+const cors = require("cors");
+
 //Middlewares
 //notFound.js
 const notFound = require("./middlewares/notFound.js");
