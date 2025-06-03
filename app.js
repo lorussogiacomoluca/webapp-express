@@ -8,6 +8,9 @@ const port = 3000;
 //Import CORS module
 const cors = require("cors");
 
+// CORS USE
+app.use(cors({ origin: process.env.FE_APP }));
+
 //Middlewares
 //notFound.js
 const notFound = require("./middlewares/notFound.js");
