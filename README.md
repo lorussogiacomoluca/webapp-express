@@ -27,3 +27,9 @@ Da oggi non vi comunicherò il numero minimo di push, dovendo lavorare su più g
 🐛 Inserire un **middleware per la gestione errori**  
 🧩 Creare un **middleware per le immagini**  
 📊 Mostrare la **media delle recensioni** nel dettaglio del libro
+
+---
+
+## 🔗 Integrazione SETUP Web App React
+
+Configuriamo l’app di backend (repo `webapp-express`) a ricevere chiamate dalla nostra applicazione React, installando e impostando il middleware **CORS**:
