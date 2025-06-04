@@ -33,3 +33,10 @@ Da oggi non vi comunicherò il numero minimo di push, dovendo lavorare su più g
 ## 🔗 Integrazione SETUP Web App React
 
 Configuriamo l’app di backend (repo `webapp-express`) a ricevere chiamate dalla nostra applicazione React, installando e impostando il middleware **CORS**:
+
+---
+
+## 🚀 Aggiungere recensioni
+
+Predisponiamo un’API per salvare nel database una nuova recensione legata ad un film
+Testiamola su postman e verifichiamo che nel DB venga effettivamente inserita una nuova recensione

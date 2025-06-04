@@ -15,7 +15,7 @@ const index = (req, res) => {
 
 const show = (req, res) => {
   const id = req.params.id;
-  const sqlMovie = `SELECT M.*, AVG(R.vote) FROM movies M JOIN reviews R on M.id = R.movie_id WHERE M.id = ?`;
+  const sqlMovie = `SELECT M.*, AVG(R.vote) as avg FROM movies M JOIN reviews R on M.id = R.movie_id WHERE M.id = ?`;
   connection.query(sqlMovie, [id], (error, movieResult) => {
     if (error) {
       res.status(500).json({ message: error.message });
