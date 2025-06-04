@@ -33,4 +33,8 @@ const show = (req, res) => {
   });
 };
 
-module.exports = { index, show };
+const storeReview = (req, res) => {
+  console.log("Review Store");
+};
+
+module.exports = { index, show, storeReview };
