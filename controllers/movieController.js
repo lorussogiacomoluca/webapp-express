@@ -34,7 +34,19 @@ const show = (req, res) => {
 };
 
 const storeReview = (req, res) => {
-  console.log("Review Store");
+  const { id } = req.params;
+  const { name, vote, text } = req.body;
+  const sql = `INSERT INTO reviews (movie_id, name, vote, text) VALUES (?,?,?,?)`;
+
+  connection.query(sql, [id, name, vote, text], (error, result) => {
+    if (error) {
+      res.status(500).json({ message: error.message });
+    }
+    res
+      .status(201)
+      .json({ message: `Recensione aggiunta`, id: result.insertId });
+    console.log(result);
+  });
 };
 
 module.exports = { index, show, storeReview };
